@@ -9,6 +9,7 @@ module.exports = app => {
     router.post('/upload', UploadMiddleware(), GeneralController.Upload);
 
     router.post('/login', AuthController.Login);
+    router.post('/register', AuthController.Register);
 
     app.use('/api', router);
 };

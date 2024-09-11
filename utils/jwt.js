@@ -4,8 +4,6 @@ const bcrypt = require('bcryptjs');
 const moment = require("moment");
 const jwt = require("jsonwebtoken");
 
-const secret = process.env.JWT_SECRET;
-
 exports.GeneratePassword = password => {
     const salt = bcrypt.genSaltSync(10);
 
@@ -17,7 +15,7 @@ exports.GenerateToken = email => {
 
     return jwt.sign(
         {email: email},
-        secret,
+        process.env.JWT_SECRET,
         {expiresIn: expire.unix()}
     );
 };
@@ -30,5 +28,5 @@ exports.ValidatePassword = async (password, hashed) => {
 };
 
 exports.VerifyToken = token => {
-    return jwt.verify(token, secret, {});
+    return jwt.verify(token, process.env.JWT_SECRET, {});
 };

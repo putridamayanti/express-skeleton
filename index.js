@@ -5,9 +5,9 @@ const morgan = require("morgan");
 const cors = require('cors')
 const connectDB = require("./config/database");
 const {AuthMiddleware} = require("./config/middleware");
-const port = process.env.PORT || 5000;
-
 dotenv.config();
+
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());

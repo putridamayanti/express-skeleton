@@ -1,5 +1,5 @@
 const {verify} = require("jsonwebtoken");
-const {UserModel} = require("../models/user");
+const {UserModel} = require("../models/user.model");
 const secret = process.env.JWT_SECRET;
 
 exports.AuthMiddleware = async (req, res, next) => {
